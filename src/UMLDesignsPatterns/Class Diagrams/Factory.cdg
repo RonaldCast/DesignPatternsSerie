@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="DesignsPattern">
+  <ClassDiagramComponents>
+    <Class name="ConexionFabrica" package="Factory" visibility="public" xPosition="223.0" yPosition="206.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getConexion" returnType="IConexion" visibility="public">
+          <Argument type="String" name="motor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionMySQL" package="Factory.Implenete" visibility="public" xPosition="409.0" yPosition="513.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionOracle" package="Factory.Implenete" visibility="public" xPosition="204.0" yPosition="497.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ConexionPostgreSQL" package="Factory.Implenete" visibility="public" xPosition="698.0" yPosition="513.0">
+      <Fields>
+        <Field name="host" type="String" visibility="private"/>
+        <Field name="puerto" type="String" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="Factory" visibility="public" xPosition="245.0" yPosition="61.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IConexion" package="Factory.Interface" visibility="public" xPosition="540.0" yPosition="198.0">
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+        <Method name="desconectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Factory.Implenete.ConexionPostgreSQL" target="Factory.Interface.IConexion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Factory.Implenete.ConexionOracle" target="Factory.Interface.IConexion"/>
+    <UseRelation source="Factory.ConexionFabrica" target="Factory.Interface.IConexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Factory.Implenete.ConexionMySQL" target="Factory.Interface.IConexion"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
